@@ -7,12 +7,13 @@ while(1):
 
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    mask = cv2.inRange(hsv_frame, np.array([0, 0, 100]), np.array([10, 0, 100]))
+    mask = cv2.inRange(hsv_frame, np.array([255, 255, 255]), np.array([255, 255, 255]))
     result = cv2.bitwise_and(hsv_frame, hsv_frame, mask=mask)
 
     cv2.imshow('frame', frame)
     cv2.imshow('mask',mask)
     cv2.imshow('result', result)
+    cv2.imshow('hsv_frame', hsv_frame)
 
     if cv2.waitKey(60) & 0xFF == ord('q'):
         break
