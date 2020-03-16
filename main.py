@@ -22,13 +22,6 @@ while(1):
     _, threshold =  cv2.threshold(frame, 127, 255, cv2.THRESH_BINARY, dst=None);
     _, threshold2 =  cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY, dst=None);
 
-<<<<<<< HEAD
-=======
-    cv2.imshow('frame', frame)
-    cv2.imshow('mask',mask)
-    cv2.imshow('result', result)
-    cv2.imshow('hsv_frame', hsv_frame)
->>>>>>> bf7b43589d1e8bd8eb2b1676c5688dc274c2582d
 
     if cv2.waitKey(60) & 0xFF == ord('q'):
         break
