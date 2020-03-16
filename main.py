@@ -1,5 +1,5 @@
-import cv2;
-import numpy as np;
+import cv2
+import numpy as np
 
 cap = cv2.VideoCapture('starlink.mp4')
 
@@ -25,8 +25,6 @@ while(1):
 
     if cv2.waitKey(60) & 0xFF == ord('q'):
         break
-
-
 
 cv2.waitKey(0);
 cv2.destroyAllWindows();
