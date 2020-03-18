@@ -1,12 +1,12 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture('starlink.mp4')
+cap = cv2.VideoCapture('data/videos/starlink.mp4')
 
 while(1):
     _, frame = cap.read()
 
-    template  = cv2.imread('starlink2.jpg', 0)
+    template  = cv2.imread('data/templates/white_star.jpg', 0)
 
     w,h = template.shape[::-1]
     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
