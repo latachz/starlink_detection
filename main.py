@@ -3,7 +3,6 @@ import numpy as np
 
 cap = cv2.VideoCapture('data/videos/starlink2.mp4')
 
-
 fps = cap.get(cv2.CAP_PROP_FPS)
 
 print("Frames per second using video.get(cv2.cv.CV_CAP_PROP_FPS): {0}".format(fps))
@@ -28,16 +27,19 @@ while(1):
     threh = 0.75
     loc = np.where(result>=threh)
     i = 0
+
     for pt in zip(*loc[::-1]):
         cv2.rectangle(frame, pt, (pt[0]+w,pt[1]+h),(0,255,255),1)
         cv2.putText(frame, f'x: {pt[0]} y: {pt[1]}', (pt[0], pt[1]),cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 1)
-        pts = np.append(pts, [pt[0], pt[1]])
-        i+=1
-    pts = pts.reshape(i, 2)
-    cv2.polylines(frame, [pts], True, (0,255,255), 3)
+        if pt[0] < 800 and pt[0] > 200 and pt[1] < 600 and pt[1] > 200:
+            pts = np.append(pts, [pt[0], pt[1]])
+            i+=1
 
-    _, threshold =  cv2.threshold(frame, 127, 255, cv2.THRESH_BINARY, dst=None);
-    _, threshold2 =  cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY, dst=None);
+    pts = pts.reshape(i, 2)
+    cv2.polylines(frame, [pts], True, (0,0,255), 20)
+
+    _, threshold = cv2.threshold(frame, 127, 255, cv2.THRESH_BINARY, dst=None);
+    _, threshold2 = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY, dst=None);
 
     cv2.imshow('starlink', frame);
     cv2.imshow('threshold', threshold);
