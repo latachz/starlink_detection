@@ -1,4 +1,5 @@
 import cv2
+
 import numpy as np
 
 cap = cv2.VideoCapture('data/videos/starlink2.mp4')
@@ -7,7 +8,7 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 
 print("Frames per second using video.get(cv2.cv.CV_CAP_PROP_FPS): {0}".format(fps))
 
-num_frames = 10
+num_frames = 5
 
 print("Capturing {0} frames".format(num_frames))
 
@@ -36,7 +37,7 @@ while(1):
             i+=1
 
     pts = pts.reshape(i, 2)
-    cv2.polylines(frame, [pts], True, (0,0,255), 20)
+    cv2.polylines(frame, [pts], True, (0,0,255), 5)
 
     _, threshold = cv2.threshold(frame, 127, 255, cv2.THRESH_BINARY, dst=None);
     _, threshold2 = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY, dst=None);
