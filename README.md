@@ -6,6 +6,12 @@
 
 ![application screen](https://i.imgur.com/MgaP5ej.png)
 
+# How to use?
+
+```bash
+python main.py
+```
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
